@@ -20,13 +20,15 @@ var Juego = {
     obstaculosCarretera: [
         /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
-        new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1)
+        new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
+        new Obstaculo('imagenes/valla_vertical.png', 450, 240, 30, 30, 1),
+        new Obstaculo('imagenes/bache.png', 800, 242, 30, 30, 1)
     ],
     /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
    que son invisibles. No tenes que preocuparte por ellos.*/
     bordes: [
-        // // Bordes
+        // Bordes
         new Obstaculo('', 0, 5, 961, 18, 0),
         new Obstaculo('', 0, 559, 961, 18, 0),
         new Obstaculo('', 0, 5, 18, 572, 0),
@@ -42,7 +44,7 @@ var Juego = {
         new Obstaculo('', 887, 79, 56, 480, 2)
     ],
     // Los enemigos se agregaran en este arreglo.
-    enemigos: []
+    enemigos: [ZombieCaminante]
 };
 
 /* Se cargan los recursos de las imagenes, para tener un facil acceso
@@ -125,7 +127,7 @@ Juego.capturarMovimiento = function(tecla) {
     if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
         /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
-        /* COMPLETAR */
+        Jugador.moverJugador(movX, movY, tecla);
     }
 };
 
@@ -190,7 +192,7 @@ Juego.chequearColisiones = function(x, y) {
     this.obstaculos().forEach(function(obstaculo) {
         if (this.intersecan(obstaculo, this.jugador, x, y)) {
             /*COMPLETAR, obstaculo debe chocar al jugador*/
-
+            obstaculo.chocar();
             puedeMoverse = false;
         }
     }, this);
