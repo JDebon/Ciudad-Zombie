@@ -18,8 +18,14 @@ ZombieConductor.constructor = ZombieConductor;
 ZombieConductor.prototype.mover = function moverFn() {
     if (this.orientacion === 'h') {
         this.x += this.velocidad;
-    }
-    if (this.orientacion === 'v') {
+    } else if (this.orientacion === 'v') {
         this.y += this.velocidad;
+    }
+
+    if (this.x < this.rangoMov.desdeX || this.x > this.rangoMov.hastaX) {
+        this.velocidad *= -1;
+    }
+    if (this.y < this.rangoMov.desdeY || this.y > this.rangoMov.hastaY) {
+        this.velocidad *= -1;
     }
 };
