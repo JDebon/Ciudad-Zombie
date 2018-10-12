@@ -29,3 +29,7 @@ ZombieConductor.prototype.mover = function moverFn() {
         this.velocidad *= -1;
     }
 };
+
+ZombieConductor.prototype.atacar = function(jugador) {
+    Jugador.perderVidas(5);
+};
