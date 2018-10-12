@@ -45,13 +45,75 @@ var Juego = {
     ],
     // Los  se agregaran en este arreglo.
     enemigos: [
-        new ZombieCaminante('imagenes/zombie1.png', 100, 100, 10, 10, 10, 10),
-        new ZombieCaminante('imagenes/zombie2.png', 120, 120, 10, 10, 10, 10),
-        new ZombieCaminante('imagenes/zombie3.png', 130, 130, 10, 10, 10, 10),
-        new ZombieCaminante('imagenes/zombie4.png', 159, 159, 10, 10, 10, 1000),
-        new ZombieConductor('imagenes/tren_horizontal.png', 400, 322, 90, 30, 10, 10, 'h'),
-        new ZombieConductor('imagenes/tren_vertical.png', 644, 0, 30, 90, 10, 10, 'v'),
-        new ZombieConductor('imagenes/tren_vertical.png', 674, 0, 30, 90, 10, 10, 'v')
+        new ZombieCaminante('imagenes/zombie1.png', 100, 100, 10, 10, 3, {
+            desdeX: 10,
+            hastaX: 960,
+            desdeY: 130,
+            hastaY: 160
+        }),
+        new ZombieCaminante('imagenes/zombie2.png', 120, 120, 10, 10, 3, {
+            desdeX: 10,
+            hastaX: 960,
+            desdeY: 130,
+            hastaY: 160
+        }),
+        new ZombieCaminante('imagenes/zombie3.png', 130, 130, 10, 10, 3, {
+            desdeX: 10,
+            hastaX: 960,
+            desdeY: 130,
+            hastaY: 160
+        }),
+        new ZombieCaminante('imagenes/zombie4.png', 159, 159, 10, 10, 3, {
+            desdeX: 10,
+            hastaX: 960,
+            desdeY: 130,
+            hastaY: 160
+        }),
+        new ZombieConductor(
+            'imagenes/tren_horizontal.png',
+            400,
+            322,
+            90,
+            30,
+            10,
+            {
+                desdeX: 10,
+                hastaX: 960,
+                desdeY: 0,
+                hastaY: 960
+            },
+            'h'
+        ),
+        new ZombieConductor(
+            'imagenes/tren_vertical.png',
+            644,
+            0,
+            30,
+            90,
+            7,
+            {
+                desdeX: 10,
+                hastaX: 960,
+                desdeY: 0,
+                hastaY: 500
+            },
+            'v'
+        ),
+        new ZombieConductor(
+            'imagenes/tren_vertical.png',
+            674,
+            0,
+            30,
+            90,
+            10,
+            {
+                desdeX: 674,
+                hastaX: 674,
+                desdeY: 0,
+                hastaY: 500
+            },
+            'v'
+        )
     ]
 };
 
