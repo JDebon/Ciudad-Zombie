@@ -26,7 +26,7 @@ var Enemigo = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
 
 /* Por defecto, un enemigo sabe responder al mensaje de atacar
 sacando una vida al jugador.*/
-Enemigo.prototype.atacar = function(jugador) {
+Enemigo.prototype.atacar = function() {
     Jugador.perderVidas(1);
 };
 
