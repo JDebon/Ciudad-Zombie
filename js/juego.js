@@ -21,8 +21,10 @@ var Juego = {
         /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
         new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
+        new Obstaculo('imagenes/valla_horizontal.png', 310, 130, 30, 30, 1),
         new Obstaculo('imagenes/valla_vertical.png', 450, 240, 30, 30, 1),
-        new Obstaculo('imagenes/bache.png', 800, 242, 30, 30, 1)
+        new Obstaculo('imagenes/bache.png', 800, 242, 30, 30, 1),
+        new Obstaculo('imagenes/auto_verde_abajo.png', 100, 295, 15, 30, 1)
     ],
     /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -45,29 +47,29 @@ var Juego = {
     ],
     // Los  se agregaran en este arreglo.
     enemigos: [
-        new ZombieCaminante('imagenes/zombie1.png', 100, 100, 10, 10, 3, {
+        new ZombieCaminante('imagenes/zombie1.png', 200, 200, 10, 10, 3, {
             desdeX: 10,
             hastaX: 960,
-            desdeY: 130,
-            hastaY: 160
+            desdeY: 200,
+            hastaY: 220
         }),
-        new ZombieCaminante('imagenes/zombie2.png', 120, 120, 10, 10, 3, {
+        new ZombieCaminante('imagenes/zombie2.png', 220, 210, 10, 10, 3, {
             desdeX: 10,
             hastaX: 960,
-            desdeY: 130,
-            hastaY: 160
+            desdeY: 210,
+            hastaY: 250
         }),
-        new ZombieCaminante('imagenes/zombie3.png', 130, 130, 10, 10, 3, {
+        new ZombieCaminante('imagenes/zombie3.png', 250, 240, 10, 10, 3, {
             desdeX: 10,
             hastaX: 960,
-            desdeY: 130,
-            hastaY: 160
+            desdeY: 240,
+            hastaY: 270
         }),
-        new ZombieCaminante('imagenes/zombie4.png', 159, 159, 10, 10, 3, {
+        new ZombieCaminante('imagenes/zombie4.png', 300, 260, 10, 10, 3, {
             desdeX: 10,
             hastaX: 960,
-            desdeY: 130,
-            hastaY: 160
+            desdeY: 260,
+            hastaY: 280
         }),
         new ZombieConductor(
             'imagenes/tren_horizontal.png',
@@ -75,7 +77,7 @@ var Juego = {
             322,
             90,
             30,
-            10,
+            15,
             {
                 desdeX: 10,
                 hastaX: 960,
@@ -263,7 +265,7 @@ Juego.chequearColisiones = function(x, y) {
     this.obstaculos().forEach(function(obstaculo) {
         if (this.intersecan(obstaculo, this.jugador, x, y)) {
             /*COMPLETAR, obstaculo debe chocar al jugador*/
-            obstaculo.chocar();
+            obstaculo.chocar(this.jugador);
             puedeMoverse = false;
         }
     }, this);
